@@ -7,9 +7,9 @@ To install aura, just run `sudo make`, then `make clean` to delete clutter.
 ## Managing packages
 To install a package from the AUR, just pass the package name as an argument. For example:
 ```bash
-aur devtoys-bin
+aura devtoys-bin
 ```
 To remove a package, pass the `-R` flag.
 ```bash
-aur -R devtoys-bin
+aura -R devtoys-bin
 ```
