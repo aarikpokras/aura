@@ -7,5 +7,5 @@ install:
 	@echo Done!
 
 clean:
-	rm aura
+	rm -rf ../aura
 	@echo Done!
