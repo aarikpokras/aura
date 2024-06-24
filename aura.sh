@@ -3,6 +3,10 @@
 if [ -z "$1" ]; then
   echo Please pass a package.
 elif [[ "$1" = "-R" ]]; then
+  if [ -z "$2" ]; then
+    echo No package specified.
+    exit 1
+  fi
   grep $2 ~/.aura/pkglog
   case $? in
     0)
