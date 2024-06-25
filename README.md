@@ -1,6 +1,10 @@
 # aura
 A primitive AUR helper written in Bash.
 
+## Requirements
+* `make`
+* `makepkg`
+
 ## Install aura
 To install aura, just run `sudo make`, then `make clean` to delete clutter.
 ### Fallback
