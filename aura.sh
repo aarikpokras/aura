@@ -21,9 +21,11 @@ elif [[ "$1" = "-R" ]]; then
 else
   git clone https://aur.archlinux.org/$1.git
   if [ -f "$1/PKGBUILD" ]; then
+    cd
     echo Cloned. Installing...
     cd $1
     makepkg -si
+    touch ~/.aura/pkglog
     echo $1 >> ~/.aura/pkglog
     rm -rf ./$1
   else
