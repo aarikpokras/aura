@@ -1,0 +1,12 @@
+# This is the fallback Makefile. If you ran the main Makefile without sudo, it is partially installed.
+# To fully install aura, in this directory, run `sudo make -f ./make-fallback __install` to fully install it.
+
+all: fallbk
+
+fallbk:
+	@echo This is the fallback Makefile. If you ran the other Makefile without sudo, it is partially installed. To continue, run \`sudo make -f ./make-fallback __install\`.
+
+__install:
+	cp aura.1.gz /usr/share/man/man1/
+	cp aura /usr/bin/
+	@echo Done!
