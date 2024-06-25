@@ -1,5 +1,5 @@
 #!/bin/bash
-#100
+#105
 
 if [ -z "$1" ]; then
   echo Please pass a package.
@@ -22,12 +22,11 @@ elif [[ "$1" = "-R" ]]; then
 elif [[ "$1" = "-u" ]]; then
   verTU=$(curl https://raw.githubusercontent.com/aarikpokras/aura/master/ver)
   verCR=$(cat `which aura` | head -n2 | tail -n1 | sed 's/#//')
-  echo TU $verTU
-  echo CR $verCR
   if [ $verTU -gt $verCR ]; then
     echo Update necessary. Visit the GitHub at https://github.com/aarikpokras/aura to update.
   else
-    echo Up to date!
+    clear
+    printf "\e[1;32mUp to date\e[0m\n"
   fi
 else
   git clone https://aur.archlinux.org/$1.git
