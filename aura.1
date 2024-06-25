@@ -2,8 +2,15 @@
 .SH NAME
 aura \- a simple AUR helper
 .SH SYNOPSIS
-\fB aura \fR[package name]|[-R package]
-\fB aura\fR -R [package]
-\fB aura\fR [package to install]
+\fBaura \fR[package name]|[-R package]
+\fBaura\fR -R [package]
+\fBaura\fR [package to install]
 .SH DESCRIPTION
-\fBaura\fR is an AUR helper that can be compared to \fByay\fR(8).
+\fBaura\fR is an AUR helper that can be compared to \fByay\fR(8). It has very few flags so as to maintain its simplicity:
+
+.IP "\(bu" 4
+\fBDo not\fR pass a second argument to install two packages. Instead, run it as two separate commands.
+.IP "\(bu" 4
+An AUR package is installed simply by passing the package name as the first argument. For example, one can run \fBaura devtoys-bin\fR to install devtoys-bin from the AUR.
+.IP "\(bu" 4
+An AUR package is removed by passing the package name after the \fB-R\fR flag. For example, \fBaura -R yay\fR
