@@ -1,5 +1,5 @@
 #!/bin/bash
-#105
+#110
 
 if [ -z "$1" ]; then
   echo Please pass a package.
@@ -19,6 +19,19 @@ elif [[ "$1" = "-R" ]]; then
       sudo pacman -R $2
       ;;
   esac
+elif [[ "$1" = "--uninstall" ]]; then
+  case $EUID in
+    0)
+      echo Uninstalling...
+      ;;
+    *)
+      echo You must be root to perform this operation.
+      exit 1
+      ;;
+  esac
+  sudo rm /usr/share/man/man1/aura.1.gz
+  sudo rm /usr/bin/aura
+  echo Done!
 elif [[ "$1" = "-u" ]]; then
   verTU=$(curl https://raw.githubusercontent.com/aarikpokras/aura/master/ver)
   verCR=$(cat `which aura` | head -n2 | tail -n1 | sed 's/#//')
