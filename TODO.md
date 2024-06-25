@@ -1,4 +1,5 @@
 - [x] Delete cloned git directory after install
 - [x] Ensure that user is in authorized write directory on install ($HOME?)
-- [ ] Check versions automatically when run or with --updates flag
+- [x] Check versions automatically when run or with --updates flag
+  - [ ] Update automatically
 - [ ] Add option to uninstall
