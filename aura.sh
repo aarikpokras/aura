@@ -42,9 +42,9 @@ elif [[ "$1" = "-u" ]]; then
     printf "\e[1;32mUp to date\e[0m\n"
   fi
 else
+  cd
   git clone https://aur.archlinux.org/$1.git
   if [ -f "$1/PKGBUILD" ]; then
-    cd
     echo Cloned. Installing...
     cd $1
     makepkg -si
