@@ -21,7 +21,7 @@ elif [[ "$1" = "-R" ]]; then
   esac
 elif [[ "$1" = "-u" ]]; then
   verTU=$(curl https://raw.githubusercontent.com/aarikpokras/aura/master/ver)
-  verCR=$(cat `which aura` | head -n2 | tail -n1)
+  verCR=$(cat `which aura` | head -n2 | tail -n1 | sed 's/#//')
   if [ $verTU > $verCR ]; then
     echo Update necessary.
   else
