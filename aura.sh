@@ -1,4 +1,5 @@
 #!/bin/bash
+#100
 
 if [ -z "$1" ]; then
   echo Please pass a package.
@@ -18,6 +19,14 @@ elif [[ "$1" = "-R" ]]; then
       sudo pacman -R $2
       ;;
   esac
+elif [[ "$1" = "-u" ]]; then
+  verTU=$(curl https://raw.githubusercontent.com/aarikpokras/aura/master/ver)
+  verCR=$(cat `which aura` | head -n2 | tail -n1)
+  if [ $verTU > $verCR ]; then
+    echo Update necessary.
+  else
+    echo Up to date!
+  fi
 else
   git clone https://aur.archlinux.org/$1.git
   if [ -f "$1/PKGBUILD" ]; then
