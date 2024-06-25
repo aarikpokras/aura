@@ -36,7 +36,20 @@ elif [[ "$1" = "-u" ]]; then
   verTU=$(curl https://raw.githubusercontent.com/aarikpokras/aura/master/ver)
   verCR=$(cat `which aura` | head -n2 | tail -n1 | sed 's/#//')
   if [ $verTU -gt $verCR ]; then
-    echo Update necessary. Visit the GitHub at https://github.com/aarikpokras/aura to update.
+    echo Update necessary. Updating now. Use ^C to cancel.
+    sleep 3
+    cd
+    echo Removing old version...
+    sudo rm /usr/share/man/man1/aura.1.gz
+    sudo rm /usr/bin/aura
+    echo Cloning new version...
+    git clone https://github.com/aarikpokras/aura.git
+    cd aura
+    echo Finalizing...
+    sudo make
+    make clean
+    cd
+    echo Done!
   else
     clear
     printf "\e[1;32mUp to date\e[0m\n"
